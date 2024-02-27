@@ -8,12 +8,14 @@ namespace RoguelikeGenerator.Utils
         {
             using (WebClient client = new WebClient())
             {
-                Console.WriteLine($"Скачавание _base.map (не удаляйте её никогда)");
+                Console.WriteLine($"Скачивание _base.map (не удаляйте её никогда)");
                 client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/_basemap.map",     "maps/_base.map"); // обязательная для генерации
-                Console.WriteLine($"Скачавание map_cleared.map (Пустая карта, редактируйте её для создания новых комнат.)");
+                Console.WriteLine($"Скачивание map_cleared.map (Пустая карта, редактируйте её для создания новых комнат.)");
                 client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_cleared.map",  "maps/map_cleared.map");
-                Console.WriteLine($"Скачавание map_room.map (Пример)");
+                Console.WriteLine($"Скачивание map_room.map (Пример)");
                 client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_room.map",     "maps/map_room.map");
+                Console.WriteLine($"Скачивание map_room_ext.map (Пример Расширенный)");
+                client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_room_ext.map", "maps/map_room_ext.map");
             }
         }
     }
