@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RoguelikeGenerator.World
 {
-    internal class MapManager (string path)
+    internal class MapManager (string path) 
     {
         private WorldSerialization _worldSerialization = new WorldSerialization();
         private string _path = path;
