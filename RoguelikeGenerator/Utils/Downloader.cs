@@ -1,21 +1,28 @@
-﻿using System.Net;
-
 namespace RoguelikeGenerator.Utils
 {
-    public class Downloader
+    public static class Downloader
     {
-        public static void LoadDefaultMaps()
+        private const string BaseUrl = "https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/";
+
+        private static readonly (string file, string description)[] DefaultMaps =
         {
-            using (WebClient client = new WebClient())
+            ("_base.map", "Базовая карта, на неё кладётся данж (не удаляйте её)"),
+            ("map_cleared.map", "Пустая карта, редактируйте её для создания новых комнат"),
+            ("map_room.map", "Пример комнаты"),
+            ("map_room_ext.map", "Пример комнаты, расширенный"),
+        };
+
+        public static void LoadDefaultMaps(string mapsDir)
+        {
+            using var client = new HttpClient();
+            foreach (var (file, description) in DefaultMaps)
             {
-                Console.WriteLine($"Скачивание _base.map (не удаляйте её никогда)");
-                client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/_basemap.map",     "maps/_base.map"); // обязательная для генерации
-                Console.WriteLine($"Скачивание map_cleared.map (Пустая карта, редактируйте её для создания новых комнат.)");
-                client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_cleared.map",  "maps/map_cleared.map");
-                Console.WriteLine($"Скачивание map_room.map (Пример)");
-                client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_room.map",     "maps/map_room.map");
-                Console.WriteLine($"Скачивание map_room_ext.map (Пример Расширенный)");
-                client.DownloadFile("https://github.com/hammzat/RustRoguelikeGenerator/raw/main/maps/map_room_ext.map", "maps/map_room_ext.map");
+                var target = Path.Combine(mapsDir, file);
+                if (File.Exists(target)) continue;
+
+                Console.WriteLine($"Скачивание {file} ({description})");
+                var bytes = client.GetByteArrayAsync(BaseUrl + file).GetAwaiter().GetResult();
+                File.WriteAllBytes(target, bytes);
             }
         }
     }

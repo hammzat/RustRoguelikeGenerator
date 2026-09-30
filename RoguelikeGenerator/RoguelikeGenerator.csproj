@@ -13,25 +13,25 @@
 
   <ItemGroup>
     <Reference Include="LZ4">
-      <HintPath>World\LZ4\LZ4.dll</HintPath>
+      <HintPath>World\dll\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="LZ4pn">
-      <HintPath>World\LZ4\LZ4pn.dll</HintPath>
+      <HintPath>World\dll\LZ4pn.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
-      <HintPath>World\Protobuf\protobuf-net.dll</HintPath>
+      <HintPath>World\dll\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>World\UnityEngine\UnityEngine.dll</HintPath>
+      <HintPath>World\dll\unity\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>World\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>World\dll\unity\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>World\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>World\dll\unity\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>World\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>World\dll\unity\UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 
